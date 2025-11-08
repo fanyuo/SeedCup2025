@@ -3,15 +3,15 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.05710615415529805 0.9298362587488039 0.3635153629127913 2.834726905484919
-  position 1.224774700565052 2.397275773050491 -0.496096204680595
+  orientation -0.009478083493877904 -0.7196936237462715 -0.6942270909956215 3.1552433955238928
+  position 0.9356943017116569 6.669856758990443 -0.29817336396232635
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
-  floorSize 10 10
+  floorSize 5 5
   floorTileSize 6 6
   floorAppearance PBRAppearance {
     baseColorMap ImageTexture {
@@ -22,14 +22,15 @@ RectangleArena {
     roughness 1
     metalness 0
     textureTransform TextureTransform {
-      scale 3 3
+      center 3.75 3.75
+      scale 0.3 0.3
     }
   }
   wallHeight 0.2
 }
 Robot {
-  translation 0.6600129707989215 -0.0001560592232898103 1.5007965063265443
-  rotation 0.0319900860107272 0.9989761014992397 -0.0319903583976017 -1.5718130600107787
+  translation -1.8 -0.000156152 0.149
+  rotation 0.03199007761169011 0.9989753968108602 0.032012364813967506 1.5711245865618737
   children [
     Solid {
       translation -0.06 0.024 0
@@ -53,14 +54,15 @@ Robot {
       }
     }
     Camera {
-      translation 0 0.125 0.001
-      rotation -0.1294279597735375 -0.9831056944488314 -0.1294279597735375 1.5878403061004251
+      translation -0.0872622 0.236752 3.55554e-07
+      rotation 0.21198962477639116 0.9439720586930344 0.25293705025954405 -1.637825307179586
+      fieldOfView 1
       width 188
       height 120
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 448.62367812094266
+        position 462.9931320216734
         axis 0 0 -1
         anchor 0 0.04 0.1
       }
@@ -71,7 +73,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0 0.04 0.1
-        rotation -0.2223827364095963 0.6894015952746937 0.6893992739912679 3.5792350290954102
+        rotation 0.42753850216132583 0.6392235840472377 0.6392214317178783 2.3335574571801025
         children [
           DEF WheelRight Shape {
             appearance DEF APPE_WHEEL PBRAppearance {
@@ -97,7 +99,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 386.12788805764893
+        position 400.1709106443657
         axis 0 0 -1
         anchor 0 0.04 -0.1
       }
@@ -108,7 +110,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0 0.04 -0.1
-        rotation -0.10200147112611402 0.7034198717552759 0.7034175032709233 3.3448917974875294
+        rotation 0.43118092614985376 0.6379991183487574 0.6379969701423062 2.327406547424925
         children [
           DEF WheelLeft Shape {
             appearance DEF APPE_WHEEL PBRAppearance {
@@ -157,5 +159,5 @@ Robot {
   }
   physics Physics {
   }
-  controller "my_controller2"
+  controller "demo_controller"
 }
