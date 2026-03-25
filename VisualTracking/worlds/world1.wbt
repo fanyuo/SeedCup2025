@@ -1,0 +1,163 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.009478083493877904 -0.7196936237462715 -0.6942270909956215 3.1552433955238928
+  position 0.9356943017116569 6.669856758990443 -0.29817336396232635
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+  floorTileSize 6 6
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "./textures/track.jpg"
+      ]
+    }
+    roughness 1
+    metalness 0
+    textureTransform TextureTransform {
+      center 3.75 3.75
+      scale 0.3 0.3
+    }
+  }
+  wallHeight 0.2
+}
+Robot {
+  translation -1.8 -0.000156152 0.149
+  rotation 0.03199007761169011 0.9989753968108602 0.032012364813967506 1.5711245865618737
+  children [
+    Solid {
+      translation -0.06 0.024 0
+      children [
+        DEF Pillar Shape {
+          appearance PBRAppearance {
+            baseColor 0 0.666667 1
+            transparency 0.2
+            roughness 1
+            metalness 0
+          }
+          geometry Capsule {
+            height 0.02
+            radius 0.01
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE Pillar
+      physics Physics {
+      }
+    }
+    Camera {
+      translation -0.0872622 0.236752 3.55554e-07
+      rotation 0.21198962477639116 0.9439720586930344 0.25293705025954405 -1.637825307179586
+      fieldOfView 1
+      width 188
+      height 120
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 462.9931320216734
+        axis 0 0 -1
+        anchor 0 0.04 0.1
+      }
+      device [
+        RotationalMotor {
+          name "MotorRight"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.04 0.1
+        rotation 0.42753850216132583 0.6392235840472377 0.6392214317178783 2.3335574571801025
+        children [
+          DEF WheelRight Shape {
+            appearance DEF APPE_WHEEL PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "textures/checkered_marble.jpg"
+                ]
+              }
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WheelRight
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 400.1709106443657
+        axis 0 0 -1
+        anchor 0 0.04 -0.1
+      }
+      device [
+        RotationalMotor {
+          name "MotorLeft"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.04 -0.1
+        rotation 0.43118092614985376 0.6379991183487574 0.6379969701423062 2.327406547424925
+        children [
+          DEF WheelLeft Shape {
+            appearance DEF APPE_WHEEL PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "textures/checkered_marble.jpg"
+                ]
+              }
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE WheelLeft
+        physics Physics {
+        }
+      }
+    }
+    Solid {
+      translation 0 0.05 0
+      children [
+        DEF Body Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 0.666667 1
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.02
+            radius 0.08
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject Transform {
+    translation 0 0.05 0
+    children [
+      USE Body
+    ]
+  }
+  physics Physics {
+  }
+  controller "demo_controller"
+}
